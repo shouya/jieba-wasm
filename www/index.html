@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Jieba Playground</title>
+    <style>
+      #output span {
+        margin: 0.2rem;
+        display: inline-block;
+        min-width: 0.5rem;
+        min-height: 1rem;
+      }
+      #output span rt {
+        font-size: 90%;
+      }
+      #input {
+        width: 70%;
+        max-width: 70%;
+        margin: 0.5em 0;
+      }
+      #output {
+        width: 70%;
+        max-width: 70%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        font-family: monospace;
+      }
+      #control {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Jieba Playground</h1>
+
+    <div id="main">
+      <div id="control">
+        <div id="op-mode-select">
+          <input
+            type="radio"
+            name="op-mode"
+            value="cut"
+            onchange="switch_cut_mode(true); update()"
+            id="mode-cut"
+            checked
+          />
+          <label for="mode-cut">Cut mode</label>
+
+          <input
+            type="radio"
+            name="op-mode"
+            value="tag"
+            onchange="switch_cut_mode(false); update()"
+            id="mode-tag"
+          />
+          <label for="mode-tag">Tag mode</label>
+        </div>
+        <div id="cut-mode-select">
+          <input
+            type="radio"
+            name="cut-mode"
+            value="precise"
+            onchange="update()"
+            id="cut-mode-precise"
+            checked
+          />
+          <label for="cut-mode-precise">Precise</label>
+          <input
+            type="radio"
+            name="cut-mode"
+            value="full"
+            onchange="update()"
+            id="cut-mode-full"
+          />
+          <label for="cut-mode-full">Full</label>
+          <input
+            type="radio"
+            name="cut-mode"
+            value="search"
+            onchange="update()"
+            id="cut-mode-search"
+          />
+          <label for="cut-mode-search">Search</label>
+        </div>
+        <div>
+          <input type="checkbox" id="hmm" onchange="update()" value="HMM" />
+          <label for="hmm">HMM</label>
+        </div>
+      </div>
+
+      <textarea id="input" rows="10" oninput="update()" onkeyup="update()">
+自然语言处理（英语：Natural Language Processing，缩写作 NLP）是人工智能和语言学领域的分支学科。此领域探讨如何处理及运用自然语言；自然语言处理包括多方面和步骤，基本有认知、理解、生成等部分。</textarea
+      >
+      <div id="output"></div>
+    </div>
+
+    <script src="./jieba_wasm.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
