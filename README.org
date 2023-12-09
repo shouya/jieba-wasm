@@ -1,0 +1,3 @@
+Just a small tool to experiment with the [[https://github.com/fxsjy/jieba][Jieba]]'s segmentation API.
+
+Live demo on https://shouya.github.io/jieba-wasm/.
