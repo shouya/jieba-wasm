@@ -1,0 +1,11 @@
+{
+  "name": "jieba-wasm",
+  "version": "0.1.0",
+  "files": [
+    "jieba_wasm_bg.wasm",
+    "jieba_wasm.js",
+    "jieba_wasm.d.ts"
+  ],
+  "browser": "jieba_wasm.js",
+  "types": "jieba_wasm.d.ts"
+}
