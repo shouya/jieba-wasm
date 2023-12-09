@@ -10,7 +10,10 @@ dev-server: gh-pages
 
 # Publish to github pages
 publish: gh-pages
-	npx gh-pages --dotfiles --dist $<
+	git --work-tree gh-pages add --all
+	git --work-tree gh-pages commit -m "Publishing to gh-pages"
+	git --work-tree gh-pages push origin HEAD:gh-pages --force
+	git reset --mixed 'HEAD^'
 
 # Cause a rebuild
 rebuild: clean gh-pages
